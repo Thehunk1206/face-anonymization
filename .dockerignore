@@ -1,8 +1,0 @@
-*
-!requirements.txt
-!anonymizer/
-!anonymizer/*.py
-!anonymizer/static/
-!anonymizer/static/*
-!licenses/
-!licenses/*.txt

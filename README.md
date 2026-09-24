@@ -80,7 +80,7 @@ Masks add **20% padding per side**. Tracking bridges gaps up to **0.3 seconds**;
 - **Reliability:** Exercise duplicate events, independent worker restarts, invalid media, interrupted checking, chunk-boundary continuity, and blocked downloads. Check frame counts, timing, orientation, playback, and audio removal.
 - **Performance:** Measure processing time, throughput, and peak memory on short clips and a five-minute recording. Confirm memory stays bounded as video length increases.
 
-Completed checks covered CPU/MPS, full and partial batches, duplicate uploads, migration/restart, dashboard seeking, audio removal, and Docker CPU inference. The single-pass pipeline was rechecked on short supermarket, street, night, and face-free clips with **all 148 frames checked**; previews, download gates, and silent outputs passed. An unredacted supermarket clip also triggered checker flags. Earlier manual inspection found a shelf-graphic false positive and missed side-facing faces. The broader evaluation above remains pending; a measured accuracy advantage has not been established.
+Completed checks covered CPU/MPS, full and partial batches, duplicate uploads, migration/restart, dashboard seeking, and audio removal. The single-pass pipeline was rechecked on short supermarket, street, night, and face-free clips with **all 148 frames checked**; previews, download gates, and silent outputs passed. An unredacted supermarket clip also triggered checker flags. Earlier manual inspection found a shelf-graphic false positive and missed side-facing faces. The broader evaluation above remains pending; a measured accuracy advantage has not been established.
 
 ## Limitations and production
 
