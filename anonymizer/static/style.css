@@ -1,0 +1,78 @@
+:root { color-scheme: light; font: 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #243047; background: #f4f6fa; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+main { max-width: 1420px; padding: 36px 32px; margin: auto; }
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: 30px; letter-spacing: -1px; font-weight: 700; margin: 3px 0 7px; }
+h2 { font-size: 17px; } h3 { font-size: 15px; }
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:disabled { cursor: default; opacity: .5; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #8eaaff; outline-offset: 3px; }
+.page-header, .section-heading, .progress-label { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.eyebrow { font-size: 10px; letter-spacing: 1.7px; color: #64738b; font-weight: 700; }
+.muted { color: #6b778c; } .small { font-size: 12px; }
+.subtle-link { color: #375ccc; text-decoration: none; font-size: 13px; } .subtle-link:hover { text-decoration: underline; }
+.services { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 22px; }
+.service { display: flex; gap: 13px; align-items: center; padding: 18px 20px; background: #fff; border: 1px solid #e2e7ef; border-radius: 12px; }
+.step { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; color: #4466c7; background: #edf2ff; font-weight: 700; flex-shrink: 0; }
+.service p, .service-state small { color: #758195; font-size: 12px; }
+.service-state { margin-left: auto; text-align: right; font-size: 12px; } .service-state small { display: block; }
+.service-state .offline { color: #b44939; }
+.workspace { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 22px; align-items: start; }
+aside { display: grid; gap: 18px; }
+.card { background: white; border: 1px solid #e2e7ef; border-radius: 12px; padding: 22px; }
+.upload > p { margin-top: 7px; } .upload form { margin: 18px 0 12px; }
+.file-label { display: block; font-size: 12px; font-weight: 600; }
+input[type=file] { margin: 9px 0 14px; font-size: 12px; width: 100%; color: #68768d; }
+input::file-selector-button { border: 1px solid #d8dfeb; padding: 6px 8px; border-radius: 5px; background: #f7f9fc; margin-right: 7px; }
+.primary { display: inline-block; padding: 10px 16px; border: 1px solid #3a5ed0; border-radius: 7px; background: #3a5ed0; color: white; text-decoration: none; font-size: 13px; font-weight: 600; }
+.primary:hover { background: #304fba; } .upload .primary { width: 100%; }
+#upload-message { margin-top: 9px; overflow-wrap: anywhere; }
+.history { padding: 18px 12px 10px; } .history .section-heading { padding: 0 8px 12px; }
+.text-button { color: #4466c7; background: none; border: none; padding: 3px; font-size: 12px; }
+#jobs { max-height: 520px; overflow-y: auto; }
+.job-button { display: block; text-align: left; width: 100%; padding: 12px; border: 1px solid transparent; border-radius: 8px; margin: 2px 0; color: inherit; background: transparent; }
+.job-button:hover { background: #f7f9fc; } .job-button[aria-current=true] { background: #f0f4ff; border-color: #d7e1ff; }
+.job-button strong { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 13px; font-weight: 600; }
+.job-button small { display: block; margin-top: 4px; color: #77849a; font-size: 11px; }
+.detail { min-height: 600px; padding: 26px; }
+.job-title { min-width: 0; } #job-name { overflow-wrap: anywhere; } #job-id { margin-top: 3px; overflow-wrap: anywhere; font-family: ui-monospace, monospace; font-size: 10px; }
+.badge { border-radius: 5px; padding: 4px 8px; background: #edf1f7; color: #5f6e85; font-size: 11px; white-space: nowrap; }
+.badge.completed, .badge.passed { background: #eaf7f1; color: #207454; }
+.badge.flagged, .badge.needs_review { background: #fff2da; color: #91600b; }
+.badge.failed { background: #feeeec; color: #b44939; }
+.badge.processing, .badge.checking { background: #edf2ff; color: #4466c7; }
+.stage-progress { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 23px 0; margin: 8px 0 18px; border-bottom: 1px solid #edf0f5; }
+.progress-label { font-size: 12px; margin-bottom: 8px; } .progress-label span { color: #7a8798; font-size: 11px; }
+progress { display: block; width: 100%; height: 6px; appearance: none; border: 0; border-radius: 8px; overflow: hidden; background: #edf0f5; margin-bottom: 7px; accent-color: #5275dd; }
+progress::-webkit-progress-bar { background: #edf0f5; } progress::-webkit-progress-value { background: #5275dd; border-radius: 8px; }
+progress::-moz-progress-bar { background: #5275dd; }
+.preview-heading { margin-bottom: 12px; }
+.player { position: relative; background: #111824; border-radius: 9px; overflow: hidden; }
+video { display: block; width: 100%; height: clamp(220px, 36vw, 440px); object-fit: contain; }
+#boxes { position: absolute; pointer-events: none; } #boxes rect { fill: #ef44441c; stroke: #ff6059; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.player-empty { min-height: 280px; display: grid; place-items: center; padding: 24px; border: 1px dashed #d8e0ed; border-radius: 9px; background: #f8fafd; color: #8190a5; text-align: center; }
+.preview-state { color: #64738b; font-size: 12px; margin: 12px 0; }
+.chunks { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 18px; max-height: 190px; overflow-y: auto; }
+.chunk { background: #fff; border: 1px solid #e0e5ed; border-radius: 7px; padding: 8px 10px; text-align: left; color: #5d6b80; }
+.chunk[aria-pressed=true] { border-color: #5275dd; box-shadow: inset 0 0 0 1px #5275dd; background: #f7f9ff; }
+.chunk strong { display: block; font-size: 11px; margin-bottom: 5px; } .chunk .badge { display: inline-block; font-size: 10px; padding: 2px 5px; }
+.actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.findings { border-top: 1px solid #edf0f5; padding-top: 20px; } #flag-help { margin: 8px 0; }
+.finding-list { list-style: none; padding: 0; margin: 0; max-height: 270px; overflow-y: auto; }
+.finding-list button { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 10px; border: 0; border-bottom: 1px solid #f0f2f6; background: #fff; padding: 10px 2px; font-size: 12px; color: #56647a; text-align: left; }
+.finding-list button:hover { background: #f7f9fd; } .finding-list time { color: #3a5ed0; font-variant-numeric: tabular-nums; font-weight: 600; }
+.finding-heading, #brief-findings summary { padding: 12px 0 7px; font-size: 13px; }
+.finding-heading { display: flex; justify-content: space-between; }
+#brief-findings { border-top: 1px solid #edf0f5; margin-top: 12px; }
+#brief-findings summary { cursor: pointer; font-weight: 600; }
+#brief-count { margin-left: 8px; font-weight: 400; } #brief-help { margin: 4px 0 8px; }
+#selected-flag { color: #91600b; margin-top: 10px; } .note { font-size: 11px; color: #8b96a7; margin-top: 22px; line-height: 1.7; }
+.error { background: #fff1ed; color: #a84532; padding: 12px; border-radius: 7px; margin: 12px 0; overflow-wrap: anywhere; font-size: 12px; }
+.empty { min-height: 530px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; color: #7c899b; }
+.empty h2 { color: #4f6079; } .empty-icon { font-size: 34px; color: #879ed6; }
+@media (max-width: 850px) { main { padding: 22px 16px; } .workspace { grid-template-columns: 230px minmax(0,1fr); gap: 14px; } .card { padding: 16px; } .services { gap: 12px; } .service { padding: 14px; } .service-state { font-size: 10px; } .stage-progress { grid-template-columns: 1fr; gap: 15px; } }
+@media (max-width: 640px) { .workspace, .services { grid-template-columns: 1fr; } .page-header { align-items: flex-start; } .page-header > a { font-size: 11px; max-width: 85px; } h1 { font-size: 25px; } aside { gap: 12px; } #jobs { max-height: 170px; } .detail { min-height: 420px; } .preview-heading { align-items: flex-start; } .preview-heading span { text-align: right; font-size: 10px; } .empty { min-height: 330px; } }

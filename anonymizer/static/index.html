@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Face Anonymizer</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <div><p class="eyebrow">LOCAL VIDEO WORKSPACE</p><h1>Face Anonymizer</h1><p class="muted">Redact faces. Preview each chunk. Review quality checks.</p></div>
+      <a class="subtle-link" href="/docs">API documentation ↗</a>
+    </header>
+    <section class="services" aria-label="Processing services">
+      <div class="service"><span class="step">1</span><div><strong>Face anonymization</strong><p>YOLOv12s · BoT-SORT</p></div><div class="service-state"><span id="redact-service">Connecting…</span><small id="redact-queue">—</small></div></div>
+      <div class="service"><span class="step">2</span><div><strong>Quality checking</strong><p>YOLOv12m-face</p></div><div class="service-state"><span id="check-service">Connecting…</span><small id="check-queue">—</small></div></div>
+    </section>
+    <p id="error" class="error" role="alert" hidden></p>
+    <div class="workspace">
+      <aside>
+        <section class="card upload">
+          <h2>New video</h2><p class="muted">Finished chunks appear here while processing continues.</p>
+          <form id="upload-form">
+            <label class="file-label" for="file">Choose a video<input id="file" type="file" accept="video/*,.mkv,.avi,.mov,.mp4" required></label>
+            <button id="upload-button" class="primary" type="submit">Upload & anonymize</button>
+            <p id="upload-message" class="small" role="status"></p>
+          </form>
+          <p class="small muted">Video only — audio removed</p>
+        </section>
+        <section class="card history"><div class="section-heading"><h2>Recent videos</h2><button id="refresh" class="text-button" type="button">Refresh</button></div><div id="jobs"><p class="muted">Loading…</p></div></section>
+      </aside>
+      <section class="card detail">
+        <div id="empty" class="empty"><span class="empty-icon">▷</span><h2>Your video workspace</h2><p>Upload a video or select a recent job.<br>The first preview appears when its chunk is ready.</p></div>
+        <div id="job" hidden>
+          <div class="section-heading"><div class="job-title"><h2 id="job-name"></h2><p id="job-id" class="small muted"></p></div><span id="status" class="badge"></span></div>
+          <p id="job-error" class="error" role="alert" hidden></p>
+          <div class="stage-progress">
+            <div><div class="progress-label"><strong>Anonymization</strong><span id="redaction-state"></span></div><progress id="redaction-progress" aria-label="Anonymization progress"></progress><p id="redaction-count" class="small muted"></p></div>
+            <div><div class="progress-label"><strong>Quality checking</strong><span id="checking-state"></span></div><progress id="checking-progress" aria-label="Quality checking progress"></progress><p id="checking-count" class="small muted"></p></div>
+          </div>
+          <div class="section-heading preview-heading"><h3>Preview</h3><span id="audio-label" class="small muted">Video only — audio removed</span></div>
+          <div id="player-empty" class="player-empty">Waiting for the first redacted chunk…</div>
+          <div id="player" class="player" hidden><video id="video" controls playsinline preload="metadata"></video><svg id="boxes" aria-hidden="true"></svg></div>
+          <p id="video-error" class="error" role="alert" hidden></p>
+          <p id="preview-state" class="preview-state" role="status"></p>
+          <div id="chunks" class="chunks" aria-label="Choose preview"></div>
+          <div class="actions"><a id="download" class="primary" hidden>Download checked video</a><a id="report" class="subtle-link" hidden>JSON report ↗</a><span id="download-help" class="small muted"></span></div>
+          <section class="findings">
+            <div class="section-heading"><h3>Quality findings</h3><span id="flag-count" class="badge">0 flags</span></div>
+            <p id="flag-help" class="small muted"></p>
+            <div id="persistent-findings" hidden>
+              <div class="finding-heading"><strong>Persistent detections</strong><span id="persistent-count" class="small muted"></span></div>
+              <ol id="flags" class="finding-list"></ol>
+              <button id="more-flags" class="text-button" type="button" hidden>Show more persistent findings</button>
+            </div>
+            <details id="brief-findings" hidden>
+              <summary>Unconfirmed detections <span id="brief-count" class="small muted"></span></summary>
+              <p id="brief-help" class="small muted"></p>
+              <ol id="brief-flags" class="finding-list"></ol>
+              <button id="more-brief-flags" class="text-button" type="button" hidden>Show more unconfirmed findings</button>
+            </details>
+            <p id="selected-flag" class="small"></p>
+          </section>
+          <p class="note">Unchecked and flagged previews are for local operator review. A clear check means no residual faces were detected; it does not guarantee anonymity.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
